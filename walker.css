@@ -1,0 +1,137 @@
+@define-color selected-text #000000;
+@define-color text #151B54;
+@define-color base #a9a9a9;
+@define-color border #000000;
+@define-color foreground #FF6863;
+@define-color background #000000;
+
+window * {
+    all: unset;
+    color: @text;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+}
+
+window .normal-icons,
+window .large-icons,
+window .item-image,
+window .symbols {
+    -gtk-icon-size: 6;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+window .box-wrapper {
+    background: alpha(@base, 0.9);
+    border: 2px solid alpha(@border, 0.6);
+    border-radius: 10px;
+    padding: 4px;
+    margin: 0;
+    box-shadow: 0 2px 12px alpha(black, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+window .search-container {
+    border: 2px solid alpha(@border, 0.55);
+    border-radius: 8px;
+    padding: 4px 6px;
+    margin: 0;
+    background: alpha(@base, 0.65);
+    box-shadow: inset 0 0 6px alpha(white, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+window .input {
+    background: transparent;
+    color: @text;
+    padding: 3px 4px;
+    margin: 0;
+    caret-color: @selected-text;
+}
+
+window .input::placeholder {
+    opacity: 0.9;
+    color: alpha(@text, 0.8);
+}
+
+window .list {
+    margin: 0;
+    padding: 0;
+}
+
+window .item-box {
+    border: 2px solid transparent;
+    opacity: 0.9;
+    border-radius: 5px;
+    padding: 2px 3px;
+    margin: 1px 0;
+    background: alpha(@base, 0.65);
+    transition: all 120ms ease-in-out;
+    backdrop-filter: blur(6px);
+}
+
+window child:hover .item-box,
+window child:selected .item-box {
+    background: alpha(@selected-text, 0.48);
+    border-color: alpha(@selected-text, 0.6);
+    box-shadow: inset 0 0 6px alpha(@selected-text, 0.22);
+}
+
+window .item-text {
+    font-weight: normal;
+    opacity: 0.9;
+    color: @text;
+    padding: 1px 2px;
+}
+
+window .item-subtext {
+    opacity: 0.8;
+    color: alpha(@text, 0.6);
+    padding: 0 2px;
+}
+
+window .preview {
+    border: 2px solid alpha(@border, 0.7);
+    border-radius: 6px;
+    background: alpha(@base, 0.6);
+    color: @foreground;
+    padding: 2px 4px;
+    margin: 2px 0;
+    box-shadow: inset 0 0 8px alpha(white, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+window .keybinds-wrapper {
+    border-top: 2px solid alpha(@border, 0.6);
+    font-size: 11px;
+    opacity: 0.85;
+    margin: 1px 0 0 0;
+    padding: 2px 4px;
+    color: @foreground;
+    background: alpha(@base, 0.5);
+    border-radius: 5px;
+    backdrop-filter: blur(6px);
+}
+
+window .error {
+    background: alpha(@selected-text, 0.25);
+    color: @selected-text;
+    padding: 2px 3px;
+    margin: 0;
+    border-radius: 4px;
+    border: 2px solid alpha(@selected-text, 0.55);
+    box-shadow: inset 0 0 5px alpha(@selected-text, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+window scrollbar {
+    opacity: 0;
+    min-width: 0;
+    min-height: 0;
+}
